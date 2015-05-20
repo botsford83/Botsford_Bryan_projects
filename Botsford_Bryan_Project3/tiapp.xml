@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.companyname</id>
+    <id>com.buckle</id>
     <name>Botsford_Bryan_Project3</name>
     <version>1.0</version>
     <publisher>bryanbotsford1</publisher>
@@ -11,7 +11,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>ec6ffa4d-81b8-4e5d-bcc1-590c76578527</guid>
+    <guid>4b50b01d-6e80-4557-885b-84dead1c56b2</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>

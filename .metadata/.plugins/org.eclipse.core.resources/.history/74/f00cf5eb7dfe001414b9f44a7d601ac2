@@ -1,0 +1,39 @@
+var secondWindow = Ti.UI.createWindow({
+		backgroundColor: "white",
+		layout: "horizontal",
+});
+var border = Ti.UI.createView ({
+		backgroundColor: "#2550f1",
+		height: 1,
+		width: pWidth,
+		top: 20,
+});
+var viewContainer = Ti.UI.createScrollView({
+		top: 0, //because of the horizontal layout.
+		width: pWidth,
+		backgroundColor: "#dedede",
+		height: pHeight - border.top - border.height,
+		layout: "horizontal",
+		contentWidth: pWidth,
+		showVerticalScrollIndicator: true,
+});
+var closeButton = Ti.UI.createLabel({
+		text: "Close Window",
+		backgroundColor: "blue",
+		color: "#fff",
+		height: 20,
+		font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+		width: "100%",
+		textAlign: "center",
+		bottom: 0
+});
+var closeWindow = function(){
+		secondWindow.close();
+		
+};
+//EventListeners
+closeButton.addEventListener("click", closeWindow);
+//Opening
+secondWindow.add(border, viewContainer, closeButton);
+secondWindow.open();
+openGalleryButton.addEventListener("click", galleryDisplay);

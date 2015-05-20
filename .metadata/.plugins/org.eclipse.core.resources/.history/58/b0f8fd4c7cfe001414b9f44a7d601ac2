@@ -1,0 +1,35 @@
+Titanium.UI.setBackgroundColor('#000');
+//
+////
+//
+// Buckle Main Window
+////
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "white",
+});
+	var buckleMainTitleView = Ti.UI.createView({
+		backgroundColor: "red",
+		height: 65,
+		top: 18,
+	});
+	var buckleMainTitleLabel = Ti.UI.createLabel({
+		text: "Buckle Mobile",
+		font: {fontSize: 20, fontFamily: "Arial Black", fontWeight: "bold"},
+		top: 35,
+		width: "100%",
+		textAlign: "center",
+		color: "black",
+		backgroundColor: "white"
+	});
+	var buckleMainborder = Ti.UI.createView({
+		backgroundColor: "blue",
+		height: 1,
+		top: buckleMainTitleView.top + 1,
+	});
+////
+//
+// Adding and opening mainWindow
+////
+buckleMainTitleView.add(buckleMainTitleLabel);
+mainWindow.add(buckleMainTitleView, buckleMainborder);
+mainWindow.open();

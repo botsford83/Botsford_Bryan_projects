@@ -4,35 +4,33 @@ Titanium.UI.setBackgroundColor('#000');
 ///
 //Main Window//
 var mainWindow = Ti.UI.createWindow({
-	backgroundColor: "#4c4c4c"
-	//backGroundImage: ""
-});
-var titleView = Ti.UI.createView({
-	backgroundColor: "white",
-	borderColor: "#2550f1",
-	borderRadius: 20,
-	borderWidth: 1,
-	height: 100,
-	top: mainWindow.top / 2,
-	left: 20,
-	right: 20,
+	backgroundImage: "940_448_Buckle_Logo_Store_Front_002_1585.jpg",
 });
 var border = Ti.UI.createView({
 	backgroundColor: "#6a0000",
 	height: 1,
 	top: 20,
 });
+var titleView = Ti.UI.createView({
+	backgroundColor: "#6a0000",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 50,
+	bottom: 10,
+	width: "100%",
+});
 var openGalleryButton = Ti.UI.createLabel({
-	text: "Jeans",
-	font: {fontSize: 30, fontFamily: "Arial Black", fontWeight: "bold"},
+	text: "Enter Jeans Gallery",
+	font: {fontSize: 18, fontFamily: "Arial Black", fontWeight: "bold"},
 	top: titleView.height - titleView.top,
 	width: "100%",
-	textAlign: "center"
+	textAlign: "center",
+	top: "auto",
 });
 
 
 //JavaScript Files
-var load = require("galleryDisplay");
+var load = require("app2");
 //openGalleryButton.addEventListener("click", galleryDisplay);
 titleView.add(openGalleryButton);
 mainWindow.add(titleView, border);

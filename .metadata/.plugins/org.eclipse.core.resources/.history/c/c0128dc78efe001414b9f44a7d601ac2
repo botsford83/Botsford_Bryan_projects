@@ -1,0 +1,45 @@
+// this sets the background color of the master UIView (when there are no windows/tab groups on it)
+Titanium.UI.setBackgroundColor('#000');
+//
+///
+//Main Window//
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "white"
+});
+var border = Ti.UI.createView({
+	backgroundColor: "#6a0000",
+	height: 1,
+	top: 20,
+});
+var newImage = Ti.UI.createImageView({
+	image: '/logo/logo.png',
+	width: 100,
+	height: 100,
+	top: border.top + border.height,
+					});
+var titleView = Ti.UI.createView({
+	backgroundColor: "white",
+	borderColor: "#2550f1",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 40,
+	bottom: 20,
+	left: 30,
+	right: 30,
+});
+var openGalleryButton = Ti.UI.createLabel({
+	text: "Enter Jeans Gallery",
+	font: {fontSize: 18, fontFamily: "Arial Black", fontWeight: "bold"},
+	top: titleView.height - titleView.top,
+	width: "100%",
+	textAlign: "center",
+	top: "auto",
+});
+
+
+//JavaScript Files
+var load = require("app2");
+//openGalleryButton.addEventListener("click", galleryDisplay);
+titleView.add(openGalleryButton);
+mainWindow.add(titleView, border);
+mainWindow.open();

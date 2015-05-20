@@ -1,0 +1,7 @@
+var jeanGallery = function(){
+	var jeanWindow = Ti.UI.createWindow({
+		backgroundColor: "black",
+		height: 65,
+		top: 20,
+	});
+};

@@ -1,0 +1,6 @@
+var jeanGallery = function(){
+	var jeanWindow = Ti.UI.createWindow({
+		backgroundColor: "black",
+	});
+};
+buckleMainTitleLabel.addEventListener("click", jeanGallery);
