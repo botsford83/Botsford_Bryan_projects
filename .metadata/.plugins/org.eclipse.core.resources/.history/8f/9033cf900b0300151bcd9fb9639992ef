@@ -1,0 +1,11 @@
+var launchFunction = function (){
+	if (this.title === "Gallery"){
+		galleryFunction();
+	}
+		else if (this.title === "The Last Squad"){
+			dataFunction();
+		}
+			else{
+				customFunction();
+			}
+};

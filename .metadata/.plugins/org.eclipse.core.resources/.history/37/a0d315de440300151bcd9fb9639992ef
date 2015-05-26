@@ -1,0 +1,83 @@
+// JSON Object
+var  jeanInfo = {
+	"Jean Information":{
+		"theTitle": "Buckle Denim",
+		"jeanList":[
+			{
+				"name": "Affliction Black Premium Blake Jean",
+				"description": "This is a nice pair of jeans :)"
+			},
+			{
+				"name": "Big Star Vintage Pioneer Jean",
+				"description": "This is a vintage baby"
+			},
+			{
+				"name": "BKE Aaron Jean",
+				"description": "This is just a classy look son",
+			}
+		]
+	}
+};
+dataButton.addEventListener("click", function(){
+	navWindow.openWindow(dataWindow, {animated: true});
+	var navDataWindow = Ti.UI.iOS.createNavigationWindow({
+		window: navWindow,
+	});
+	var getDetail = function(){
+		var detailWindow = Ti.UI.createWindow({
+			title: this.text,
+			backgroundColor: "#fff",
+		});
+		var detailText = Ti.UI.createLabel({
+			text: this.details,
+			top: 30,
+			left: 15,
+			right: 15,
+		});
+		detailWindow.add(detailText);
+		navDataWindow.openWindow(detailWindow);
+	};
+	var makeUI = function(){
+		var spacing = 20;
+		for(n in jeanInfo){
+			var titleLabel = Ti.UI.createLabel({
+				text: jeanInfo[n].theTitle,
+				left: 15,
+				right: 15,
+				top: spacing,
+				height: 25,
+				backgroundColor: "#333",
+				font: {fontSize: 14, fontFamily: "Verdana"},
+				color: "#fafafa",
+			});
+			//spacing = titleLabel.top + titleLabel.height + 10;
+			console.log(spacing);
+			for(m in jeanInfo[n].jeanList){
+				var itemLabel = Ti.UI.createLabel({
+					text: jeanInfo[n].jeanList[m].name,
+					details: jeanInfo[n].jeanList[m].description,
+					left: 30,
+					right: 15,
+					top: spacing,
+					height: 25,
+					backgroundColor: "#ffffff",
+					font: {fontSize: 14, fontFamily: "Verdana"},
+					color: "#333"
+				});
+				navWindow.add(itemLabel);
+				spacing = itemLabel.top + itemLabel.height + 10;
+				itemLabel.addEventListener("click", getDetail);	
+			};
+			navWindow.add(titleLabel);
+			spacing = itemLabel.top + itemLabel.height + 40;
+		}
+	};
+	makeUI();
+	navDataWindow.open();
+});
+
+
+
+
+
+

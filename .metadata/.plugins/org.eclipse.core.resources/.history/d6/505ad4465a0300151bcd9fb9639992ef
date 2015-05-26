@@ -1,0 +1,85 @@
+var buckleDenim = [
+					{title: "Football", description: "Football is a contact sport that starts in august"}, 
+					{title: "Tennis", description: "blah blah blah blah blah"}, 
+					{title: "Volleyball", description: "blah blah blah blah"}
+];
+var detailWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Details"
+});
+
+dataButton.addEventListener("click", function(){
+	navWindow.openWindow(dataWindow, {animated: true});
+	var jeanHeader = Ti.UI.createView({
+		height: 30,
+		backgroundColor: "#878787"
+	});
+	var jeanText = Ti.UI.createLabel({
+		text: "Buckle Denim",
+		font: {fontSize: 22, fontWeight: "bold"},
+		color: "#fff",
+	});
+	jeanHeader.add(jeanText);
+	var jeanSection = Ti.UI.createTableViewSection({
+		headerView: jeanHeader
+	});
+	var jeans = Ti.UI.createTableView({
+		top: 0
+	});
+	
+	for(var i = 0, j = buckleDenim.length; i < j; i++){
+		var jeanRow = Ti.UI.createTableViewRow({
+			title: buckleDenim[i].title,
+			desc: buckleDenim[i].description,
+			hasChild: true
+		});
+			if(Ti.Platform.name === "iPhone OS"){
+				jeanRow.hasChild = false;
+				jeanRow.hasDetail = true;
+			}
+				jeanSection.add(jeanRow);
+				jeanRow.addEventListener("click", function(){
+					navWindow.openWindow(detailWindow, {animated: true});
+					var detailTitleView = Ti.UI.createView({
+						height: 65,
+						backgroundColor: "#fff",
+						top: 0
+					});
+					var detailLabelView = Ti.UI.createView({
+						height: 65,
+						backgroundColor: "#fff",
+						top: detailTitleView.height + detailTitleView.top,
+					});
+					var detailBorder = Ti.UI.createView({
+						backgroundColor: "#dbdbdb",
+						height: 1,
+						top: detailTitleView.height + detailTitleView.top
+					});
+					var detailTitleLabel = Ti.UI.createLabel({
+						text: this.title,
+						font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+						top: 30,
+						width: "100%",
+						textAlign: "center"
+					});	
+					var detailText = Ti.UI.createLabel({
+						text: this.desc,
+						font: {fontSize: 14, fontFamily: "Arial", fontWeight: "bold"},
+						top: detailBorder.height + detailBorder.top + 40,	
+						width: "100%",
+						textAlign: "center",
+						top: "center"
+					});	
+						detailTitleView.add(detailTitleLabel);
+						detailLabelView.add(detailText);
+						detailWindow.add(detailTitleView, detailBorder, detailLabelView);
+						navWindow.open();
+				});
+		};
+		
+		var buckleSection = [jeanSection];
+		//
+		jeans.setData(buckleSection);
+		//
+		dataWindow.add(jeans);
+});

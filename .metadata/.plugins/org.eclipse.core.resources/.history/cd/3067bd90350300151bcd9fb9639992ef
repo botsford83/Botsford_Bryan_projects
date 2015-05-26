@@ -1,0 +1,45 @@
+// Image Variables 
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoryListing();
+var imageArray = 0;
+////
+// Function to create the second page.
+galleryButton.addEventListener("click", function(){
+	navWindow.openWindow(galleryWindow, {animated: true});
+	var newImageView = Ti.UI.createView({
+		backgroundColor: "white",
+		height: 400,
+		top: 20,
+		width: "100%",
+	});
+	var newImage = Ti.UI.createImageView({
+		image: "/images/Xcode_by_skandelabro.jpg",
+		width: 300,
+		height: 300,
+		top: "auto",
+	});
+	newImageView.add(newImage);
+	var newImageButton = Ti.UI.createLabel({
+		text: "Next Image",
+		font: {fontSize: 18, fontFamily: "Arial Black", fontWeight: "bold"},
+		textAlign: "center",
+		bottom: 0,
+		left: 20,
+	});
+	for(var i = 1; i < imageFiles.length; i++){
+		var newImageFunction = function(){
+			if(imageArray == 2){
+				imageArray = 0;
+			}
+				else{
+					imageArray++;
+				}
+				newImage.image = "images/" + imageFiles[imageArray];
+		};
+	};
+	// Event Listener to cycle through images
+	newImageButton.addEventListener("click", newImageFunction);
+	////
+	// Add and open Window
+	galleryWindow.add(newImageButton, newImageView);
+});

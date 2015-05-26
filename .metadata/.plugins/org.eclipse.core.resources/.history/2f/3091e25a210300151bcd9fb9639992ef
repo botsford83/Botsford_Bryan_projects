@@ -1,0 +1,30 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoryListing();
+console.log(imageFiles);
+var imageArray = 0;
+var galleryFunction = function(){
+	var galleryWindow = Ti.UI.createWindow({
+		backgroundColor: "white",
+	});
+	var newImageButton = Ti.UI.createLabel({
+		text: "Next Image",
+		font: {fontSize: 18, fontFamily: "Arial Black", fontWeight: "bold"},
+		textAlign: "center",
+		bottom: 0,
+		left: 20,
+	});
+	for(var i = 0; i < imageFiles.length; i++){
+		var newImage = Ti.UI.createImageView({
+			image: "images/" + imageFiles[i],
+			width: 300,
+			height: 300,
+			top: 40,
+		});
+	};
+	newImageButton.addEventListener("click", newImageFunction);
+	////
+	// Add and open Window
+	galleryWindow.add(galleryImage, newImageButton);
+	galleryWindow.open();
+};
+galleryLabel.addEventListener("click", galleryFunction);

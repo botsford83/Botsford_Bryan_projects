@@ -1,0 +1,56 @@
+// this sets the background color of the master UIView (when there are no windows/tab groups on it)
+Titanium.UI.setBackgroundColor('#000');
+////
+// Main Window
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "red",
+	title: "Buckle Mobile",
+	fontSize: 12
+});
+/////
+// Navigation Window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+////
+// Additional Windows
+var galleryWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Gallery",
+});
+var dataWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Jean Info",
+});
+var customWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Customization",
+});
+////
+// Additional Buttons
+var galleryButton = Ti.UI.createButton({
+	title: "Open Gallery",
+	top: 20,
+	height: 30
+});
+var dataButton = Ti.UI.createButton({
+	title: "Jean Information",
+	height: 30,
+	top: galleryButton.height + galleryButton.top
+});
+var customButton = Ti.UI.createButton({
+	title: "Place an Order",
+	height: 30,
+	top: dataButton.height + dataButton.top
+});
+////
+// Load Additional javascript Files
+var load = require("galleryFunction");
+var load1 = require("dataFunction");
+var load2 = require("customFunction");
+
+
+
+
+mainWindow.add(galleryButton, dataButton, customButton);
+navWindow.open();

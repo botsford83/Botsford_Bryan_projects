@@ -1,7 +1,11 @@
 =run
 Botsford_Bryan_Project3\:launchMode=run
 Botsford_Bryan_Project3\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.7101DC44-D9DD-4D76-8079-317E23338AF6
-LAST_LAUNCH_TIMESTAMP=1432076337824
+Botsford_Bryan_Project4\:launchMode=run
+Botsford_Bryan_Project4\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.7101DC44-D9DD-4D76-8079-317E23338AF6
+BuckleMobile\:launchMode=run
+BuckleMobile\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.4FCAF192-7F29-4FD4-834A-E9648C96FE42
+LAST_LAUNCH_TIMESTAMP=1432576856111
 eclipse.preferences.version=1
 preference.show.console.onError=true
 preference.studio.perspective.version=103

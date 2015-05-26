@@ -1,0 +1,16 @@
+// Load other javascript files
+var load = require("galleryFunction", "dataFunction", "customFunction");
+// Event Listener to run the function launchFunction
+launchFunction.addEventListener("click", launchFunction);
+// This will run each function according to what the user selected
+var launchFunction = function (){
+	if (this.title === "Gallery"){
+		galleryFunction();
+	}
+		else if (this.title === "The Last Squad"){
+			dataFunction();
+		}
+			else{
+				customFunction();
+			}
+};

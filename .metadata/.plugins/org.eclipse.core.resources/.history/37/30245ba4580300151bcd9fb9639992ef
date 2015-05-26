@@ -1,0 +1,103 @@
+var fallSports = [
+					{title: "Football", description: "Football is a contact sport that starts in august"}, 
+					{title: "Tennis", description: "blah blah blah blah blah"}, 
+					{title: "Volleyball", description: "blah blah blah blah"}
+];
+var detailWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Details"
+});
+
+dataButton.addEventListener("click", function(){
+	navWindow.openWindow(dataWindow, {animated: true});
+	// var fallHeader = Ti.UI.createView({
+		// height: 30,
+		// backgroundColor: "#878787"
+	// });
+	// var fallHeadText = Ti.UI.createLabel({
+		// text: "Fall Sports",
+		// font: {fontSize: 22, fontWeight: "bold"},
+		// color: "#fff",
+	// });
+	// fallHeader.add(fallHeadText);
+	// var titleView = Ti.UI.createView({
+		// height: 65,
+		// backgroundColor: "#fff",
+		// top: 0
+	// });
+// 	
+	// var titleLabel = Ti.UI.createLabel({
+		// text: "High School Sports",
+		// font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+		// top: 30,
+		// width: "100%",
+		// textAlign: "center"
+	// });
+	//Table View Sections//
+	var fallSection = Ti.UI.createTableViewSection({
+	});
+	// var border = Ti.UI.createView({
+		// backgroundColor: "#dbdbdb",
+		// height: 1,
+		// top: fallSection.height + fallSection.top
+	// });
+	var sports = Ti.UI.createTableView({
+		top: 20
+	});
+	
+	for(var i = 0, j = fallSports.length; i < j; i++){
+		var fallRow = Ti.UI.createTableViewRow({
+			title: fallSports[i].title,
+			desc: fallSports[i].description,
+			hasChild: true
+		});
+			if(Ti.Platform.name === "iPhone OS"){
+				fallRow.hasChild = false;
+				fallRow.hasDetail = true;
+			}
+				fallSection.add(fallRow);
+				fallRow.addEventListener("click", function(){
+					navWindow.openWindow(detailWindow, {animated: true});
+					var detailTitleView = Ti.UI.createView({
+						height: 65,
+						backgroundColor: "#fff",
+						top: 0
+					});
+					var detailLabelView = Ti.UI.createView({
+						height: 65,
+						backgroundColor: "#fff",
+						top: detailTitleView.height + detailTitleView.top,
+					});
+					var detailBorder = Ti.UI.createView({
+						backgroundColor: "#dbdbdb",
+						height: 1,
+						top: detailTitleView.height + detailTitleView.top
+					});
+					var detailTitleLabel = Ti.UI.createLabel({
+						text: this.title,
+						font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+						top: 30,
+						width: "100%",
+						textAlign: "center"
+					});	
+					var detailText = Ti.UI.createLabel({
+						text: this.desc,
+						font: {fontSize: 14, fontFamily: "Arial", fontWeight: "bold"},
+						top: detailBorder.height + detailBorder.top + 40,	
+						width: "100%",
+						textAlign: "center",
+						top: "auto"
+					});	
+						detailTitleView.add(detailTitleLabel);
+						detailLabelView.add(detailText);
+						detailWindow.add(detailTitleView, detailBorder, detailLabelView);
+						navWindow.open();
+				});
+		};
+		
+		var sportSection = [fallSection];
+		//
+		sports.setData(sportSection);
+		//
+		dataWindow.add(sports);
+});

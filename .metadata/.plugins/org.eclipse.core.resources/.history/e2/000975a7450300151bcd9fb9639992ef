@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+
+
+customView.addEventListener("click", customFunction);

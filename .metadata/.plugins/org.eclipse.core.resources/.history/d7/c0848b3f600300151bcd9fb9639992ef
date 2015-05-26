@@ -1,0 +1,8 @@
+dataButton.addEventListener("click", function(){
+	navWindow.openWindow(dataWindow, {animated: true});
+	
+	
+	
+	
+	
+});

@@ -1,0 +1,83 @@
+// this sets the background color of the master UIView (when there are no windows/tab groups on it)
+Titanium.UI.setBackgroundColor('#000');
+////
+// Main Window
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Buckle",
+});
+/////
+// Navigation Window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+////
+// Additional Windows
+var galleryWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Gallery"
+});
+var dataWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Info"
+});
+var customWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Custom"
+});
+var getDetailWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff",
+	title: "Details"
+});
+////
+// Additional Buttons
+var galleryButton = Ti.UI.createButton({
+	title: "Open Gallery",
+	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+	color: "#6a0000",
+	top: 2,
+	height: 100,
+	backgroundColor: "#dbdbdb",
+	borderColor: "#fff",
+	width: "100%"
+});
+var dataButton = Ti.UI.createButton({
+	title: "Open Jean Information",
+	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+	color: "#6a0000",
+	height: 100,
+	top: galleryButton.height + galleryButton.top,
+	backgroundColor: "#dbdbdb",
+	borderColor: "#fff",
+	width: "100%"
+});
+var customButton = Ti.UI.createButton({
+	title: "Open Place an Order",
+	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+	color: "#6a0000",
+	height: 100,
+	top: dataButton.height + dataButton.top,
+	backgroundColor: "#dbdbdb",
+	borderColor: "#fff",
+	width: "100%"
+});
+// Course Information
+var courseLabel = Ti.UI.createLabel({
+	text: "VFW 1505//Bryan Botsford",
+	font: {fontSize: 8, fontFamily: "Arial", fontWeight: "bold"},
+	top: customButton.top + customButton.height + 40,
+	width: "100%",
+	textAlign: "center"
+});
+////
+// Load Additional javascript Files
+var load = require("galleryFunction");
+var load1 = require("dataFunction");
+var load2 = require("customFunction");
+var load3 = require("dataGetDetail");
+
+
+
+
+mainWindow.add(galleryButton, dataButton, customButton, courseLabel);
+navWindow.open();

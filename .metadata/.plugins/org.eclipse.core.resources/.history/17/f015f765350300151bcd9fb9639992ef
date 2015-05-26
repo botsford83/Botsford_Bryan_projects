@@ -1,0 +1,60 @@
+// this sets the background color of the master UIView (when there are no windows/tab groups on it)
+Titanium.UI.setBackgroundColor('#000');
+////
+// Main Window
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "red",
+	title: "The Final Stand"
+});
+/////
+// Navigation Window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+////
+// Additional Windows
+var galleryWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Gallery",
+});
+var dataWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Squad Members",
+});
+var customWindow = Ti.UI.createWindow({
+	backgroundColor: "blue",
+	title: "Customization",
+});
+////
+// Additional Buttons
+var galleryButton = Ti.UI.createButton({
+	title: "Open Gallery",
+	top: 20,
+	height: 30
+});
+var dataButton = Ti.UI.createButton({
+	title: "Open Squad Members",
+	height: 30,
+	top: galleryButton.height + galleryButton.top
+});
+var customButton = Ti.UI.createButton({
+	title: "Create a Squad Member",
+	height: 30,
+	top: dataButton.height + dataButton.top
+});
+////
+// Load Additional javascript Files
+var load = require("galleryFunction");
+// Event Listeners
+galleryButton.addEventListener("click", function(){
+	navWindow.openWindow(galleryWindow, {animated: true});
+});
+dataButton.addEventListener("click", function(){
+	navWindow.openWindow(dataWindow, {animated: true});
+});
+customButton.addEventListener("click", function(){
+	navWindow.openWindow(customWindow, {animated: true});
+});
+
+mainWindow.add(galleryButton, dataButton, customButton);
+navWindow.open();
