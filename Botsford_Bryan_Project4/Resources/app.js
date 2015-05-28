@@ -52,7 +52,7 @@ var dataButton = Ti.UI.createButton({
 	width: "100%"
 });
 var customButton = Ti.UI.createButton({
-	title: "Open Place an Order",
+	title: "Shop",
 	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
 	color: "#6a0000",
 	height: 100,
@@ -74,7 +74,7 @@ var courseLabel = Ti.UI.createLabel({
 var load = require("galleryFunction");
 var load1 = require("dataFunction");
 var load2 = require("customFunction");
-var load3 = require("dataGetDetail");
+
 
 
 

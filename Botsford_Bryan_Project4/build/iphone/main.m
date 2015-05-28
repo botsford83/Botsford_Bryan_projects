@@ -15,7 +15,7 @@ NSString * const TI_APPLICATION_NAME = @"Botsford_Bryan_Project4";
 NSString * const TI_APPLICATION_VERSION = @"1.0";
 NSString * const TI_APPLICATION_DESCRIPTION = @"";
 NSString * const TI_APPLICATION_COPYRIGHT = @"2015 by bryanbotsford1";
-NSString * const TI_APPLICATION_GUID = @"39a327a9-38f1-43b6-be8d-ae9888ee1c5b";
+NSString * const TI_APPLICATION_GUID = @"b8dd4a07-f0f9-4049-9555-a20ee39603ae";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 NSString * const TI_APPLICATION_BUILD_TYPE = @"";
 
